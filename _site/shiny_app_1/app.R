@@ -1,15 +1,15 @@
----
-title: "minha homepage"
-output: html_document
-runtime: shiny
----
+#
+# This is a Shiny web application. You can run the application by clicking
+# the 'Run App' button above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
 
-## incluindo os gráficos
-
-```{r gráfico, echo=FALSE}
-library(ggplot2)
-library(readxl)
 library(shiny)
+
+# Define UI for application that draws a histogram
 ui <- fluidPage(
 
     # Application title
@@ -35,7 +35,7 @@ server <- function(input, output) {
         output$scatterPlot <- renderPlot({
         # generate bins based on input$bins from ui.R
        
-        x = read_excel("tabelas/teste.xlsx")
+        x = read_excel("../tabelas/teste.xlsx")
         x[is.na(x)]=0
         y = t(x[-1])
         colnames(y)=rownames(x)
@@ -70,4 +70,3 @@ server <- function(input, output) {
 
 # Run the application 
 shinyApp(ui = ui, server = server)
-```
