@@ -21,3 +21,15 @@ plot(pressure)
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+
+## incluindo os gráficos
+
+```{r gráfico, echo=FALSE}
+library(readxl)
+x = read_excel("tabelas/teste.xlsx")
+x[is.na(x)] = 0
+y = t(x[-1])
+colnames(y)=rownames(x)
+plot(y)
+```
