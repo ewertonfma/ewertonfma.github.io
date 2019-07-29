@@ -1,6 +1,5 @@
 ---
 title: "minha homepage"
-output: html_document
 runtime: shiny
 ---
 
